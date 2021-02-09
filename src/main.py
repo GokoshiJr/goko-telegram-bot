@@ -1,38 +1,23 @@
-import logging
+import telegram
 from telegram.ext import Updater, CommandHandler
 from keys import TOKEN
+import handlers
 
-# Enable logging
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
-)
-
-logger = logging.getLogger(__name__)
-
-def start(update, context) -> None:
-    update.message.reply_text("Hello World")
+if __name__ == "__main__":
+    # bot info
+    bot = telegram.Bot(TOKEN)
+    print(bot.get_me())
     
-def help(update, context) -> None:
-    update.message.reply_text("Help Command")
-
-def main():
-    """Start the bot."""
     # updater - para saber las peticiones que recibimos de los usuarios
-    updater = Updater(token=TOKEN, use_context=True) 
+    updater = Updater(token = TOKEN, use_context = True)
 
-    # Get the dispatcher to register handlers
+    # get the dispatcher to register handlers
     dispatcher = updater.dispatcher
 
     # on different commands - answer in Telegram
-    dispatcher.add_handler(CommandHandler("start", start))
-    dispatcher.add_handler(CommandHandler("help", help))
+    dispatcher.add_handler(CommandHandler("start", handlers.start))
+    dispatcher.add_handler(CommandHandler("help", handlers.help)) 
 
-    # Start the Bot
-    updater.start_polling()
-
-    # Run the bot until the user presses Ctrl-C or the process receives SIGINT,
-    # SIGTERM or SIGABRT
-    updater.idle()
-
-if __name__ == "__main__":
-    main()
+    # start the Bot
+    updater.start_polling() # verifica si esta recibiendo mensajes
+    updater.idle() # terminar bot ctrl + c
