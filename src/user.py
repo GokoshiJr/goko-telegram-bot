@@ -14,11 +14,11 @@ class User():
   def get_user_name(self):
     return self.__user_name
 
-  def log(self):
+  def log(self, action):
     if (self.__last_name != None):
-      return f"El user {self.__user_name} ({self.__name} {self.__last_name}) ha iniciado el bot"
+      return f"El user {self.__user_name} ({self.__name} {self.__last_name}) {action}"
     else:
-      return f"El user {self.__user_name} ({self.__name}) ha iniciado el bot"
+      return f"El user {self.__user_name} ({self.__name}) {action}"
 
   def __str__(self):
     return f"User({self.__name} {self.__last_name}, {self.__user_name})"
