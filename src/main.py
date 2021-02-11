@@ -1,4 +1,4 @@
-import telegram, qr_handler, handlers
+import telegram, qr_handler, handlers, dolar_handler
 from telegram.ext import Updater, CommandHandler, ConversationHandler, MessageHandler, Filters
 from keys import TOKEN
 
@@ -17,7 +17,8 @@ if __name__ == "__main__":
     dispatcher.add_handler(CommandHandler("start", handlers.start))
     dispatcher.add_handler(CommandHandler("commands", handlers.commands)) 
     dispatcher.add_handler(CommandHandler("dev", handlers.dev_social)) 
-    
+    dispatcher.add_handler(CommandHandler("dolar", dolar_handler.price))
+
     # manejador/handler de conversacion
     dispatcher.add_handler(ConversationHandler(
         entry_points=[ # La conversacion inicia al mandar el comando /qrcode

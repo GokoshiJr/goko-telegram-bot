@@ -3,7 +3,7 @@ from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 # dev social
 dev_telegram = InlineKeyboardButton(
   text="Telegram", 
-  url="telegram.me/Gokoshi_Jr"
+  url="telegram.me/GokoshiJr"
 )
 dev_twitter = InlineKeyboardButton(
   text="Twitter", 
@@ -15,7 +15,7 @@ dev_whatsapp = InlineKeyboardButton(
 )
 dev_github = InlineKeyboardButton(
   text="GitHub", 
-  url="github.com"
+  url="https://github.com/GokoshiJr"
 )
 
 # markup
