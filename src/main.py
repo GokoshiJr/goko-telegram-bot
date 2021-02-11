@@ -1,8 +1,6 @@
-import telegram
+import telegram, qr_handler, handlers
 from telegram.ext import Updater, CommandHandler, ConversationHandler, MessageHandler, Filters
 from keys import TOKEN
-import qr_handler
-import handlers
 
 if __name__ == "__main__":
     # bot info
@@ -17,7 +15,8 @@ if __name__ == "__main__":
 
     # on different commands - answer in Telegram
     dispatcher.add_handler(CommandHandler("start", handlers.start))
-    dispatcher.add_handler(CommandHandler("help", handlers.help)) 
+    dispatcher.add_handler(CommandHandler("commands", handlers.commands)) 
+    dispatcher.add_handler(CommandHandler("dev", handlers.dev_social)) 
     
     # manejador/handler de conversacion
     dispatcher.add_handler(ConversationHandler(
